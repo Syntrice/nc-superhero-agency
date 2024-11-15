@@ -1,22 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using SuperheroAgency;
 
-List<string> list = new List<string>()
-{
-    "hello",
-    "world", 
-};
+var reyzhen = new Mystic("Michael", "Reyzhen", 7000, Alignment.GOOD);
+var rich = new Gadgeteer("Rich", "The Developer", 33, Alignment.EVIL);
 
-Dictionary<int, string> dictionary = new Dictionary<int, string>()
-{
-    { 1, "a" },
-    { 2, "b" },
-};
+var survey1 = new ReconMission<Gadgeteer>("Leeds", 300); // Should provide an error
 
-static T GetLastItem<T>(T[] list)
-{
-    return list[list.Length - 1];
-}
+var survey2 = new ReconMission<Mystic>("Manchester", 300);
 
-int[] intArray = { 1, 5, 2, 8, 6 };
-Console.WriteLine(GetLastItem(intArray));
+survey2.HeroesDeployed.Add(reyzhen); // All good
+survey2.HeroesDeployed.Add(rich); // Should provide an error
