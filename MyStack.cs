@@ -1,8 +1,22 @@
-﻿namespace SuperheroAgency
+﻿using System.Collections;
+using System.Xml.Linq;
+
+namespace SuperheroAgency
 {
-    internal class MyStack<CustomStack>
+    internal class MyStack<CustomStack> : System.Collections.ICollection
     {
         private CustomStack[] items = new CustomStack[0];
+
+    
+        public bool IsSynchronized => throw new NotImplementedException();
+        public object SyncRoot => throw new NotImplementedException();
+
+        public int Count   // property
+        {
+            get { return items.Length; }   // get method
+        }
+
+
 
         public void Push(CustomStack item)
         {
@@ -17,5 +31,21 @@
             return item;
         }
 
+
+
+
+
+        public void CopyTo(Array array, int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return items.GetEnumerator();
+        }
     }
+
+
+
 }
